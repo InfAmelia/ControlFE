@@ -2,25 +2,22 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import '../bootstrap.css';
 import '../App.css';
-import Tile from './Tile.js'
 import Matches from './Matches.js'
 import Leaderboard from './Leaderboard.js'
 import About from './About.js'
 
 class App extends Component {
-  // props = properties of the component
-  // life cycle is important, should look up how that works
-  // constructor(props){
-  //   super(props);
-  //
-  //   // could be props instead
-  //   this.state = {
-  //     players: {}
-  //   };
-  // }
+  constructor(props){
+    super(props);
 
-  playersApiStub(){
-    return [{ id: 1, name: "Scott", }]
+    // could be props instead
+    this.state = {
+      selectedComponent: ''
+    };
+  }
+
+  updateSelectedComponent(component){
+    this.setState({ selectedComponent: component })
   }
 
   matchesApiStub(){
@@ -46,70 +43,50 @@ class App extends Component {
             { id: 10, name: 'Amy',     wins: 1  }]
   }
 
-  // this will only be called once
-  // componentWillMount() {
-  //   const results = this.leaderboardApiStub(); // this will eventually be a promise, which is why we use state
-  //   this.setState({ players: results });
-  // }
-
-  // displayLeaderboard(){
-  //   const gridHeader = this.displayLeaderboardHeader();
-  //   const gridContent =
-  //     this.state.players.map((player) =>
-  //       <div className="row Robo-Font grid-body" key={player.id + "-player"}>
-  //         <div className="col-1 grid-element">
-  //           {player.id}
-  //         </div>
-  //         <div className="col-6 grid-element">
-  //           {player.name}
-  //         </div>
-  //         <div className="col grid-element">
-  //           {player.wins}
-  //         </div>
-  //       </div>
-  //     );
-  //
-  //   return <div className="leaderboard-grid">{gridHeader}{gridContent}</div>
-  // }
-
   // eventually, make it so that this is done on click and the symbols are used to denote selection along with sizing }
+  appHeader(){
+    return (
+      <div className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <div className="row">
+          <div className="col">
+            <div className="Robo-Font">Matches</div>
+          </div>
+          <div className="col selected">
+            <div className='Robo-Font'>{"<<"} Leaderboard {">>"}</div>
+          </div>
+          <div className="col">
+            <div className='Robo-Font'>About</div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // TODO - make this an array of components with a single map function creating them to dry up
+  appBody(){
+    return (<div className="App-body">
+      <div className="App-grid leaderboard Robo-Font">
+        <Leaderboard playerStats={this.leaderboardApiStub()} />
+      </div>
+
+      <br />
+      <div className="App-grid matches Robo-Font">
+        <Matches matchStats={this.matchesApiStub()}/>
+      </div>
+
+      <br />
+      <div className="App-grid about Robo-Font">
+        <About />
+      </div>
+    </div>)
+  }
+
   render() {
     return (
       <div className="App container">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <div className="row">
-            <div className="col">
-              <div className="Robo-Font">Matches</div>
-            </div>
-            <div className="col selected">
-              <div className='Robo-Font'>{"<<"} Leaderboard {">>"}</div>
-            </div>
-            <div className="col">
-              <div className='Robo-Font'>About</div>
-            </div>
-          </div>
-        </div>
-        <div className="App-body">
-          <div className="App-grid leaderboard">
-            <Leaderboard playerStats={this.leaderboardApiStub()} />
-          </div>
-          <br />
-          <div className="App-grid matches">
-            <Matches matchStats={this.matchesApiStub()}/>
-          </div>
-          <div className="App-grid about">
-            <About />
-          </div>
-          <div className="App-bar row">
-            <div className="col-md-6">
-              <Tile width={15} cardTitle="Most Wins" playerName="Bob"/>
-            </div>
-            <div className="col-md-6">
-              <Tile width={15} cardTitle="Highest Win %" playerName="Scott"/>
-            </div>
-          </div>
-        </div>
+          {this.appHeader()}
+          {this.appBody()}
       </div>
     );
   }
