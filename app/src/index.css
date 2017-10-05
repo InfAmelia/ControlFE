@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.outer-outer-container {
+  background-color: #242b38;
+}
+
+.inner-outer-container {
+  background-color: #596170;
+}

@@ -1,0 +1,61 @@
+.App {
+  text-align: center;
+  height: 150px;
+}
+
+.Robo-Font {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.selected {
+  font-size: 120%;
+}
+
+.grid-header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 10px;
+}
+
+.grid-body {
+  padding-left: 25px;
+  padding-right: 10px;
+}
+
+.grid-element {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.App-bar {
+  width: inherit;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.App-grid {
+  background-color: #3FF
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.tiles {
+  background-color: #F00;
+}
