@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Leaderboard extends React.Component {
 
   static propTypes = {
-    playerStats: PropTypes.string
+    playerStats: PropTypes.array
   }
 
   header(){

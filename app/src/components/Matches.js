@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Matches extends React.Component {
 
   static propTypes = {
-    matchStats: PropTypes.string
+    matchStats: PropTypes.array
   }
 
   constructor(props){

@@ -10,14 +10,13 @@ class App extends Component {
   constructor(props){
     super(props);
 
-    // could be props instead
     this.state = {
-      selectedComponent: ''
+      selectedComponent: 'Leaderboard'
     };
   }
 
   updateSelectedComponent(component){
-    this.setState({ selectedComponent: component })
+    console.log("This isn't working, welp")
   }
 
   matchesApiStub(){
@@ -43,21 +42,31 @@ class App extends Component {
             { id: 10, name: 'Amy',     wins: 1  }]
   }
 
+  wrapSelectedComponent(component){
+    if (this.state.selectedComponent === component) {
+      return <div className="selected">{"<< " + component + " >>"}</div>
+    } else {
+      return <div>{component}</div>
+    }
+  }
+
   // eventually, make it so that this is done on click and the symbols are used to denote selection along with sizing }
   appHeader(){
     return (
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <div className="row">
-          <div className="col">
-            <div className="Robo-Font">Matches</div>
-          </div>
-          <div className="col selected">
-            <div className='Robo-Font'>{"<<"} Leaderboard {">>"}</div>
-          </div>
-          <div className="col">
-            <div className='Robo-Font'>About</div>
-          </div>
+          {this.navBar()}
+        </div>
+      </div>
+    )
+  }
+
+  navBar(){
+    return ["Matches", "Leaderboard", "About"].map((componentName) =>
+      <div className="col" key={componentName + "-nav"}>
+        <div onClick={this.updateSelectedComponent(componentName)} className="Robo-Font">
+          {this.wrapSelectedComponent(componentName)}
         </div>
       </div>
     )
@@ -85,8 +94,8 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-          {this.appHeader()}
-          {this.appBody()}
+          { this.appHeader() }
+          { this.appBody() }
       </div>
     );
   }
