@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+.black {
+  background-color: #000;
+}
+
 .outer-outer-container {
   background-color: #242b38;
 }

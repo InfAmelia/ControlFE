@@ -20,12 +20,12 @@ class App extends Component {
   }
 
   matchesApiStub(){
-    return [{ id: 1, date: "May 5th, 2017", winner: "Scott" },
-            { id: 2, date: "May 4th, 2017", winner: "Bob" },
-            { id: 3, date: "May 3rd, 2017", winner: "Mike" },
-            { id: 4, date: "May 3rd, 2017", winner: "Bob" },
-            { id: 5, date: "May 2nd, 2017", winner: "Ed" },
-            { id: 6, date: "May 1st, 2017", winner: "Amy" }]
+    return [{ id: 6, date: "May 5th, 2017", winner: "Scott" },
+            { id: 5, date: "May 4th, 2017", winner: "Bob" },
+            { id: 4, date: "May 3rd, 2017", winner: "Mike" },
+            { id: 3, date: "May 3rd, 2017", winner: "Bob" },
+            { id: 2, date: "May 2nd, 2017", winner: "Ed" },
+            { id: 1, date: "May 1st, 2017", winner: "Amy" }]
   }
 
   leaderboardApiStub(){
@@ -75,17 +75,17 @@ class App extends Component {
   // TODO - make this an array of components with a single map function creating them to dry up
   appBody(){
     return (<div className="App-body">
-      <div className="App-grid leaderboard Robo-Font">
+      <div className="App-grid leaderboard Robo-Font rounded">
         <Leaderboard playerStats={this.leaderboardApiStub()} />
       </div>
 
       <br />
-      <div className="App-grid matches Robo-Font">
+      <div className="App-grid matches Robo-Font rounded">
         <Matches matchStats={this.matchesApiStub()}/>
       </div>
 
       <br />
-      <div className="App-grid about Robo-Font">
+      <div className="App-grid about Robo-Font rounded">
         <About />
       </div>
     </div>)

@@ -44,7 +44,6 @@ class Matches extends React.Component {
 
     return (
       <div className="something">
-      <h4>this is matches</h4>
         <div className="header">
           {this.header()}
         </div>
