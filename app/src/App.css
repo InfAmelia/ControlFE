@@ -8,6 +8,11 @@
   color: #FFF;
 }
 
+h4 {
+  color: #61DAFB;
+  padding-bottom: 10px;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -40,6 +45,11 @@
   margin-bottom: 5px;
 }
 
+.grid-footer {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
 .App-bar {
   width: inherit;
 }
@@ -49,6 +59,7 @@
 }
 
 .App-grid {
+  padding-top: 20px;
   background-color: #000;
   border-width: thick;
   border-style: solid;
@@ -60,10 +71,23 @@
   to { transform: rotate(360deg); }
 }
 
+.challenge-container {
+  padding-top: 20px;
+}
+
 .challenge-row {
   padding-left: 40px;
   padding-bottom: 5px;
   padding-top: 5px;
+}
+
+.instructions-container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.matches-body {
+  padding-bottom: 10px;
 }
 
 .tiles {

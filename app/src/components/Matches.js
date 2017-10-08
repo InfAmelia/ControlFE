@@ -14,15 +14,14 @@ class Matches extends React.Component {
   header(){
     return (
       <div className="row Robo-Font grid-header">
-        <div className="col-1">
-          ID
-        </div>
-        <div className="col-6">
+        <h4 className="col-5">
           DATE
-        </div>
-        <div className="col">
+        </h4>
+        <h4 className="col-6">
           WINNER
-        </div>
+        </h4>
+        <h4 classname="col-1">
+        </h4>
       </div>)
   }
 
@@ -30,25 +29,27 @@ class Matches extends React.Component {
     const content =
       this.props.matchStats.map((match) =>
         <div className="row Robo-Font grid-body" key={match.id + "-match"}>
-          <div className="col-1 grid-element">
-            {match.id}
-          </div>
-          <div className="col-6 grid-element">
+          <div className="col-5 grid-element">
             {match.date}
           </div>
-          <div className="col grid-element">
+          <div className="col-6 grid-element">
             {match.winner}
+          </div>
+          <div className="col-1 grid-element">
+
           </div>
         </div>
       )
 
     return (
-      <div className="something">
-        <div className="header">
+      <div className="matches-container">
+        <div className="matches-header">
           {this.header()}
         </div>
-        <div className="body">
+        <div className="matches-body">
           {content}
+        </div>
+        <div className="grid-footer">
         </div>
       </div>
     )

@@ -19,6 +19,19 @@ class App extends Component {
     console.log("This isn't working, welp")
   }
 
+  aboutApiStub(){
+    return [{ id: 1, description: "Win without lying", hint: ''},
+            { id: 2, description: "Challenge correctly three in a row", hint: ''},
+            { id: 3, description: "Challenge twice in a row and be wrong", hint: ''},
+            { id: 4, description: "Win without telling the truth", hint: ''},
+            { id: 5, description: "Win without looking at your cards", hint: ''},
+            { id: 6, description: "Win while claiming every single role at least once", hint: ''},
+            { id: 7, description: "Knock out two players at once", hint: "Assassinate someone successfully which is challenged by another player"},
+            { id: 8, description: "Successfully claim a role which is not in play", hint: "Tax when bureacrat is in play, etc)"},
+            { id: 9, description: "Win without taking your initial two coins", hint: ''},
+            { id: 10, description: "Win with only income and coup", hint: ''}]
+  }
+
   matchesApiStub(){
     return [{ id: 6, date: "May 5th, 2017", winner: "Scott" },
             { id: 5, date: "May 4th, 2017", winner: "Bob" },
@@ -30,16 +43,17 @@ class App extends Component {
 
   leaderboardApiStub(){
     // stubbed to return a parsed result from the API
-    return [{ id: 1,  name: 'Scott',   wins: 76 },
-            { id: 2,  name: 'Chad',    wins: 21 },
-            { id: 3,  name: 'Mike',    wins: 17 },
-            { id: 4,  name: 'Amber',   wins: 7  },
-            { id: 5,  name: 'Bob',     wins: 6  },
-            { id: 6,  name: 'Brendan', wins: 5  },
-            { id: 7,  name: 'Jason',   wins: '4'},
-            { id: 8,  name: 'Peter',   wins: 2  },
-            { id: 9,  name: 'Ed',      wins: 2  },
-            { id: 10, name: 'Amy',     wins: 1  }]
+    // Rank will probably not exist in DB. Should index wins and sort desc, assume rank from that. Rank would potentially require LOTS of updates
+    return [{ id: 1,  name: 'Scott',   wins: 76, rank: 1},
+            { id: 2,  name: 'Chad',    wins: 21, rank: 2},
+            { id: 3,  name: 'Mike',    wins: 17, rank: 3 },
+            { id: 4,  name: 'Amber',   wins: 7,  rank: 4 },
+            { id: 5,  name: 'Bob',     wins: 6,  rank: 5},
+            { id: 6,  name: 'Brendan', wins: 5,  rank: 6},
+            { id: 7,  name: 'Jason',   wins: '4',rank: 7},
+            { id: 8,  name: 'Peter',   wins: 2,  rank: 8},
+            { id: 9,  name: 'Ed',      wins: 2,  rank: 9},
+            { id: 10, name: 'Amy',     wins: 1,  rank: 10}]
   }
 
   wrapSelectedComponent(component){
@@ -64,7 +78,7 @@ class App extends Component {
 
   navBar(){
     return ["Matches", "Leaderboard", "About"].map((componentName) =>
-      <div className="col" key={componentName + "-nav"}>
+      <div className="col" >
         <div onClick={this.updateSelectedComponent(componentName)} className="Robo-Font">
           {this.wrapSelectedComponent(componentName)}
         </div>
@@ -86,7 +100,7 @@ class App extends Component {
 
       <br />
       <div className="App-grid about Robo-Font rounded">
-        <About />
+        <About challenges={this.aboutApiStub()}/>
       </div>
     </div>)
   }

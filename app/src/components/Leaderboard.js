@@ -10,15 +10,15 @@ class Leaderboard extends React.Component {
   header(){
     return (
       <div className="row Robo-Font grid-header">
-        <div className="col-1">
+        <h4 className="col-4">
           RANK
-        </div>
-        <div className="col-6">
+        </h4>
+        <h4 className="col-4">
           NAME
-        </div>
-        <div className="col">
+        </h4>
+        <h4 className="col">
           SCORE
-        </div>
+        </h4>
       </div>)
   }
 
@@ -30,10 +30,10 @@ class Leaderboard extends React.Component {
     const content =
         this.props.playerStats.map((player) =>
           <div className="row Robo-Font grid-body" key={player.id + "-player"}>
-            <div className="col-1 grid-element">
-              {player.id}
+            <div className="col-4 grid-element">
+              {player.rank}
             </div>
-            <div className="col-6 grid-element">
+            <div className="col-4 grid-element">
               {player.name}
             </div>
             <div className="col grid-element">
@@ -43,11 +43,13 @@ class Leaderboard extends React.Component {
         )
       return (
       <div className="something">
-        <div className="header">
+        <div className="leaderboard-header">
           {this.header()}
         </div>
-        <div className="body">
+        <div className="leaderboard-body">
           {content}
+        </div>
+        <div className="grid-footer">
         </div>
       </div>)
     }
