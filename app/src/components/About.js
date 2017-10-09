@@ -16,7 +16,7 @@ class About extends React.Component {
   hintButton(challenge){
     if (challenge.hint != "") {
       return (
-      <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title={challenge.hint}>
+      <button type="button" className="btn" data-toggle="tooltip" data-placement="right" title={challenge.hint}>
         ?
       </button>)
     }
@@ -39,7 +39,7 @@ class About extends React.Component {
 
   displayInstructions(){
     return (
-    <div classname="instructions-container">
+    <div className="instructions-container">
       <div className="grid-header">
         <h4>Instructions</h4>
       </div>

@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Matches extends React.Component {
-
-  static propTypes = {
-    matchStats: PropTypes.array
-  }
-
   constructor(props){
     super(props);
+
+    this.state = {
+      matches: []
+    }
   }
 
   header(){
@@ -20,17 +19,30 @@ class Matches extends React.Component {
         <h4 className="col-6">
           WINNER
         </h4>
-        <h4 classname="col-1">
+        <h4 className="col-1">
         </h4>
       </div>)
   }
 
+  callApi(){
+    return fetch('https://intense-atoll-95121.herokuapp.com/matches')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({matches: responseJson});
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+  }
+
   render(){
+    this.callApi()
+
     const content =
-      this.props.matchStats.map((match) =>
+      this.state.matches.map((match) =>
         <div className="row Robo-Font grid-body" key={match.id + "-match"}>
           <div className="col-5 grid-element">
-            {match.date}
+            {match.created_at}
           </div>
           <div className="col-6 grid-element">
             {match.winner}

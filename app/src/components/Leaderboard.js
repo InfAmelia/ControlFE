@@ -22,16 +22,33 @@ class Leaderboard extends React.Component {
       </div>)
   }
 
+  callApi(){
+    return fetch('https://intense-atoll-95121.herokuapp.com/players')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({players: responseJson});
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+  }
+
   constructor(props){
     super(props);
+
+    this.state = {
+      players: []
+    }
   }
 
   render(){
+    this.callApi()
+
     const content =
-        this.props.playerStats.map((player) =>
+        this.state.players.map((player, index) =>
           <div className="row Robo-Font grid-body" key={player.id + "-player"}>
             <div className="col-4 grid-element">
-              {player.rank}
+              {index + 1}
             </div>
             <div className="col-4 grid-element">
               {player.name}
