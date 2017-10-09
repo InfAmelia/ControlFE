@@ -23,7 +23,7 @@ class Leaderboard extends React.Component {
   }
 
   callApi(){
-    return fetch('https://intense-atoll-95121.herokuapp.com/players')
+    fetch('https://intense-atoll-95121.herokuapp.com/players')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({players: responseJson});
