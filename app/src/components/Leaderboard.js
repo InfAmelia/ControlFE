@@ -23,7 +23,14 @@ class Leaderboard extends React.Component {
   }
 
   callApi(){
-    return fetch('https://intense-atoll-95121.herokuapp.com/players')
+    var myHeaders = new Headers({'Access-Control-Allow-Origin':'*', 'Content-Type': 'multipart/form-data'});
+
+    var myInit = { method: 'GET',
+               headers: myHeaders,
+               mode: 'no-cors',
+               cache: 'default' };
+
+    return fetch('https://intense-atoll-95121.herokuapp.com/players', myInit)
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({players: responseJson});
