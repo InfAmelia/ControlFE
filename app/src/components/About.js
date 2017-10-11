@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 class About extends React.Component {
-
-  constructor(props){
-    super(props)
-  }
-
   static propTypes = {
     challenges: PropTypes.array
   }
@@ -14,7 +9,7 @@ class About extends React.Component {
 
   // TODO: fix this
   hintButton(challenge){
-    if (challenge.hint != "") {
+    if (challenge.hint !== "") {
       return (
       <button type="button" className="btn" data-toggle="tooltip" data-placement="right" title={challenge.hint}>
         ?

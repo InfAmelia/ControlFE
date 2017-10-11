@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 class Leaderboard extends React.Component {
@@ -59,7 +59,7 @@ class Leaderboard extends React.Component {
           </div>
         )
       return (
-      <div className="something">
+      <div ref="leaderboard" className="leaderboard">
         <div className="leaderboard-header">
           {this.header()}
         </div>
