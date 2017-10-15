@@ -8,6 +8,13 @@ class About extends React.Component {
     challenges: PropTypes.array
   }
 
+  constructor(props){
+    super(props);
+
+    this.state = {
+      challenges: []
+    }
+  }
 
   // TODO: fix this
   hintButton(challenge){
@@ -19,9 +26,20 @@ class About extends React.Component {
     }
   }
 
+  callApi(){
+    fetch("https://intense-atoll-95121.herokuapp.com/challenges")
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({ challenges: responseJson });
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+  }
+
   displayChallenges(){
-    const content = (this.props.challenges.map((challenge) =>
-      <div className="row challenge-row text-left" key={challenge.id}>
+    const content = (this.state.challenges.map((challenge) =>
+      <div className="row challenge-row text-left" key={challenge.name + challenge.id}>
         <div className="col">
           {challenge.id}: {challenge.description} {this.hintButton(challenge)}
         </div>
@@ -62,6 +80,8 @@ class About extends React.Component {
   }
 
 render(){
+  this.callApi();
+
   return (
     <div className="About-grid">
       {this.displayInstructions()}

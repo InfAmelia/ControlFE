@@ -32,7 +32,7 @@ class App extends Component {
     if(this.state.selectedComponent === "About") {
       return (
         <div className="App-grid about Robo-Font rounded">
-          <About challenges={this.aboutApiStub()}/>
+          <About />
         </div>)
     }
   }
