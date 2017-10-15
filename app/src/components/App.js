@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import '../bootstrap.css';
-import '../App.css';
+import '../css/App.css';
 import Matches from './Matches.js'
 import Leaderboard from './Leaderboard.js'
 import About from './About.js'
@@ -48,14 +48,14 @@ class App extends Component {
 
   aboutApiStub(){
     return [{ id: 1, description: "Win without lying", hint: ''},
-            { id: 2, description: "Challenge correctly three in a row", hint: ''},
+            { id: 2, description: "Win without taking your initial two coins", hint: ''},
             { id: 3, description: "Challenge twice in a row and be wrong", hint: ''},
             { id: 4, description: "Win without telling the truth", hint: ''},
             { id: 5, description: "Win without looking at your cards", hint: ''},
             { id: 6, description: "Win while claiming every single role at least once", hint: ''},
             { id: 7, description: "Knock out two players at once", hint: "Assassinate someone successfully which is challenged by another player"},
             { id: 8, description: "Successfully claim a role which is not in play", hint: "Tax when bureacrat is in play, etc)"},
-            { id: 9, description: "Win without taking your initial two coins", hint: ''},
+            { id: 9, description: "Challenge correctly three in a row", hint: ''},
             { id: 10, description: "Win with only income and coup", hint: ''}]
   }
 

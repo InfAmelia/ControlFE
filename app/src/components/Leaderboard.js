@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../css/Leaderboard.css';
 
 class Leaderboard extends React.Component {
 
@@ -23,10 +24,10 @@ class Leaderboard extends React.Component {
   }
 
   callApi(){
-    fetch('https://intense-atoll-95121.herokuapp.com/players')
+    fetch('https://intense-atoll-95121.herokuapp.com/players', { cache: 'default' })
       .then((response) => response.json())
       .then((responseJson) => {
-        this.setState({players: responseJson});
+        this.setState({ players: responseJson });
       })
       .catch((error) => {
         console.error(error);
@@ -41,17 +42,27 @@ class Leaderboard extends React.Component {
     }
   }
 
+  displayPlayerName(player){
+    const challengeContent = player.challenge_ids.map((challengeId) =>
+      <span key={"challengeIdContainer-" + challengeId + player.name} className={"challenge" + challengeId}>[{challengeId}]</span>
+    );
+
+    return(
+      <div><p>{player.name} {challengeContent}</p></div>
+    );
+  }
+
   render(){
     this.callApi()
 
     const content =
         this.state.players.map((player, index) =>
-          <div className="row Robo-Font grid-body" key={player.id + "-player"}>
+          <div className="row Robo-Font grid-body" key={player.name + "-player" + index}>
             <div className="col-4 grid-element">
               {index + 1}
             </div>
             <div className="col-4 grid-element">
-              {player.name}
+              {this.displayPlayerName(player)}
             </div>
             <div className="col grid-element">
               {player.wins}

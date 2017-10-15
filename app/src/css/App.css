@@ -42,7 +42,6 @@ h4 {
 
 .grid-element {
   margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 .grid-footer {
@@ -69,25 +68,6 @@ h4 {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-.challenge-container {
-  padding-top: 20px;
-}
-
-.challenge-row {
-  padding-left: 40px;
-  padding-bottom: 5px;
-  padding-top: 5px;
-}
-
-.instructions-container {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.matches-body {
-  padding-bottom: 10px;
 }
 
 .tiles {

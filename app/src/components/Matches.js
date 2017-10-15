@@ -24,7 +24,8 @@ class Matches extends React.Component {
   }
 
   callApi(){
-    return fetch('https://intense-atoll-95121.herokuapp.com/matches')
+    setTimeout(1000);
+    fetch('https://intense-atoll-95121.herokuapp.com/matches')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({matches: responseJson});
