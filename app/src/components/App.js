@@ -82,7 +82,7 @@ class App extends Component {
   navBar(){
     return ["Matches", "Leaderboard", "About"].map((componentName) =>
       <div className="col" key={componentName}>
-        <div onClick={() => {this.updateSelectedComponent(componentName)}} className="Robo-Font">
+        <div onClick={() => {this.updateSelectedComponent(componentName)}} className="Robo-Font app-navigation">
           {this.wrapSelectedComponent(componentName)}
         </div>
       </div>

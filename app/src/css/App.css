@@ -24,12 +24,15 @@ h4 {
   color: white;
 }
 
+.App-navigation {
+  cursor: pointer;
+}
+
 .selected {
   font-size: 120%;
 }
 
 .grid-header {
-  cursor: pointer;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 25px;
