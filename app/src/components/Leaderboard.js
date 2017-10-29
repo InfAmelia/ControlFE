@@ -42,6 +42,16 @@ class Leaderboard extends React.Component {
     }
   }
 
+  calculateRanking(player) {
+    var winsArray = [];
+
+    for (var i = 0; i < this.state.players.length; i++) {
+      winsArray.push(this.state.players[i].wins)
+    }
+
+    return winsArray.indexOf(player.wins) + 1;
+  };
+
   displayPlayerName(player){
     const challengeContent = player.challenge_ids.map((challengeId) =>
       <span key={"challengeIdContainer-" + challengeId + player.name} className={"challenge" + challengeId}>[{challengeId}]</span>
@@ -59,7 +69,7 @@ class Leaderboard extends React.Component {
         this.state.players.map((player, index) =>
           <div className="row Robo-Font grid-body" key={player.name + "-player" + index}>
             <div className="col-4 grid-element">
-              {index + 1}
+              {this.calculateRanking(player)}
             </div>
             <div className="col-4 grid-element">
               {this.displayPlayerName(player)}
