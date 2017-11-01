@@ -66,8 +66,8 @@ class Leaderboard extends React.Component {
     this.callApi()
 
     const content =
-        this.state.players.map((player, index) =>
-          <div className="row Robo-Font grid-body" key={player.name + "-player" + index}>
+        this.state.players.map((player) =>
+          <div className="row Robo-Font grid-body" key={player.name + "-player"}>
             <div className="col-4 grid-element">
               {this.calculateRanking(player)}
             </div>
