@@ -62,9 +62,19 @@ class Leaderboard extends React.Component {
     );
   }
 
-  render(){
-    this.callApi()
+  componentWillMount(){
+    this.callApi();
 
+    this.interval = setInterval(() => {
+      this.callApi();
+    }, 5000);
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval);
+  }
+
+  render(){
     const content =
         this.state.players.map((player) =>
           <div className="row Robo-Font grid-body" key={player.name + "-player"}>

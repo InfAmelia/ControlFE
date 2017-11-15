@@ -37,6 +37,18 @@ class About extends React.Component {
       })
   }
 
+  componentWillMount(){
+    this.callApi();
+
+    this.interval = setInterval(() => {
+      this.callApi();
+    }, 5000);
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval);
+  }
+
   displayChallenges(){
     const content = (this.state.challenges.map((challenge) =>
       <div className="row challenge-row text-left" key={challenge.name + challenge.id}>
@@ -80,8 +92,6 @@ class About extends React.Component {
   }
 
 render(){
-  this.callApi();
-
   return (
     <div className="About-grid">
       {this.displayInstructions()}
