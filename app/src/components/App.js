@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import '../bootstrap.css';
+import '../css/bootstrap.css';
 import '../css/App.css';
 import Matches from './Matches.js'
 import Leaderboard from './Leaderboard.js'
