@@ -1,0 +1,19 @@
+.user-box {
+  height: 100%;
+}
+
+.user-text {
+  vertical-align: middle;
+}
+
+.user-0 {
+  background-color: darkred;
+}
+
+.user-1 {
+  background-color: darkorange;
+}
+
+.user-2 {
+  background-color: darkgreen;
+}
