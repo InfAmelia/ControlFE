@@ -30,7 +30,7 @@ class User extends React.Component {
   handleClick(){
     if (this.state.selectedComponent === true) {
       var userJson = JSON.stringify({ 'user_id': this.props.id, 'id': this.props.choreId });
-      fetch(`https://controlfe.herokuapp.com/chores/${this.props.choreId}/rotate.json`, { method: 'post',
+      fetch(`https://choreapi.herokuapp.com/chores/${this.props.choreId}/rotate.json`, { method: 'post',
                                               headers: { "Content-Type": "application/json"},
                                               body: userJson })
     }
