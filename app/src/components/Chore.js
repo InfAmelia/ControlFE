@@ -38,7 +38,7 @@ class Chore extends React.Component {
   render(){
     const content = this.props.users.map((user, index) =>
       <div key={user.id + "user"}>
-        <User name={user.name} index={index} />
+        <User name={user.name} index={index} choreId={this.props.id} id={user.id} />
       </div>
     )
 

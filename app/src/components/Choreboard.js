@@ -52,7 +52,6 @@ class Choreboard extends React.Component {
           <div className="col grid-element">
             <Chore id={chore.id} name={chore.name} users={chore.users} assigned_to={chore.assigned_to} />
           </div>
-          <hr />
         </div>
       )
 

@@ -1,9 +1,21 @@
 .user-box {
+  height: 200px;
+  line-height: 200px;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+.user-box:hover {
+  width: 100%;
   height: 100%;
+  background-color: green;
 }
 
 .user-text {
   vertical-align: middle;
+  font-size: 2em;
 }
 
 .user-0 {
