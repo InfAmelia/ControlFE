@@ -8,9 +8,7 @@
 }
 
 .user-box:hover {
-  width: 100%;
-  height: 100%;
-  background-color: green;
+  background-color: gold;
 }
 
 .user-text {
@@ -18,14 +16,18 @@
   font-size: 2em;
 }
 
+.confirmation-text {
+  font-size: 2.2em;
+}
+
 .user-0 {
-  background-color: darkred;
+  background-color: green;
 }
 
 .user-1 {
-  background-color: darkorange;
+  background-color: red;
 }
 
 .user-2 {
-  background-color: darkgreen;
+  background-color: darkred;
 }

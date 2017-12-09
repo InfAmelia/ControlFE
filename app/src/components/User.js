@@ -8,7 +8,8 @@ class User extends React.Component {
     super(props);
 
     this.state = {
-      selectedComponent: false
+      selectedComponent: false,
+      firstUser: false
     };
   }
 
@@ -19,36 +20,45 @@ class User extends React.Component {
     choreId: PropTypes.number
   }
 
+  confirmationDialog(){
+    return (<div className="row">
+      <div onClick={() => {this.handleConfirmationClick()}} className="col-6 confirmation-text">
+        CONFIRM
+      </div>
+      <div className="col-6 confirmation-text">
+        CANCEL
+      </div>
+    </div>);
+  }
+
   displayText(){
     if(this.state.selectedComponent === true) {
-      return <span className="user-text">Are you sure?</span>
+      return this.confirmationDialog();
     } else {
       return <span className="user-text">{this.props.name}</span>
     }
   }
 
-  handleClick(){
+  handleConfirmationClick(){
     if (this.state.selectedComponent === true) {
       var userJson = JSON.stringify({ 'user_id': this.props.id, 'id': this.props.choreId });
       fetch(`https://choreapi.herokuapp.com/chores/${this.props.choreId}/rotate.json`, { method: 'post',
                                               headers: { "Content-Type": "application/json"},
                                               body: userJson })
     }
+  }
 
+  handleUserClick(){
     this.toggleState();
   }
 
-  toggleState(){
-    if(this.state.selectedComponent === true) {
-      this.setState({selectedComponent: false})
-    } else {
-      this.setState({selectedComponent: true})
-    }
+  toggleState() {
+    this.setState({ selectedComponent: !this.state.selectedComponent });
   }
 
   render(){
     return(
-      <div onClick={() => {this.handleClick()}} className={`card user-box user-${this.props.index}`}>
+      <div onClick={() => {this.handleUserClick()}} className={`card user-box user-${this.props.index}`}>
         {this.displayText()}
       </div>
     )
