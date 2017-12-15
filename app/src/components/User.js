@@ -23,10 +23,10 @@ class User extends React.Component {
   confirmationDialog(){
     return (<div className="row">
       <div onClick={() => {this.handleConfirmationClick()}} className="col-6 confirmation-text">
-        CONFIRM
+        Confirm
       </div>
       <div className="col-6 confirmation-text">
-        CANCEL
+        Cancel
       </div>
     </div>);
   }
