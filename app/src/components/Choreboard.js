@@ -16,7 +16,7 @@ class Choreboard extends React.Component {
   }
 
   callApi(){
-    fetch("https://chore.a-me.com/chores")
+    fetch("https://fierce-shelf-51195.herokuapp.com/chores")
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({ chores: responseJson });
