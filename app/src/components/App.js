@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   renderChoreboardIfSelected(){
-    if(this.state.selectedComponent === "Trash + Recyle") {
+    if(this.state.selectedComponent === "Trash + Recycle") {
       return (
         <div className="App-grid leaderboard Robo-Font rounded">
           <Choreboard />
