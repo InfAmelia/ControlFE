@@ -21,7 +21,6 @@ class Chore extends React.Component {
 
     return(
       <div>
-        <h1>{this.props.name}</h1>
         <div className="user-content">{content}</div>
       </div>
     )

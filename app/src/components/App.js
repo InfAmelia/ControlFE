@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      selectedComponent: 'Trash + Recycle'
+      selectedComponent: 'Trash'
     };
   }
 
@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   renderChoreboardIfSelected(){
-    if(this.state.selectedComponent === "Trash + Recycle") {
+    if(this.state.selectedComponent === "Trash") {
       return (
         <div className="App-grid leaderboard Robo-Font rounded">
           <Choreboard />
