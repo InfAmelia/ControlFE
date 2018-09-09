@@ -27,7 +27,7 @@ class App extends Component {
       return (
         <div className="App-grid leaderboard Robo-Font rounded">
           COMING SOON
-        </div>)
+        </div>
       )
     }
   }
