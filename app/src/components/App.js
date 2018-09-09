@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      selectedComponent: 'Choreboard'
+      selectedComponent: 'Trash'
     };
   }
 
@@ -18,11 +18,17 @@ class App extends Component {
   }
 
   renderChoreboardIfSelected(){
-    if(this.state.selectedComponent === "Choreboard") {
+    if(this.state.selectedComponent === "Trash + Recyle") {
       return (
         <div className="App-grid leaderboard Robo-Font rounded">
           <Choreboard />
         </div>)
+    } else {
+      return (
+        <div className="App-grid leaderboard Robo-Font rounded">
+          COMING SOON
+        </div>)
+      )
     }
   }
 
@@ -47,7 +53,7 @@ class App extends Component {
   }
 
   navBar(){
-    return ["Choreboard"].map((componentName) =>
+    return ["Floors", "Trash + Recycle", "Fridge"].map((componentName) =>
       <div className="col" key={componentName}>
         <div onClick={() => {this.updateSelectedComponent(componentName)}} className="Robo-Font App-navigation">
           {this.wrapSelectedComponent(componentName)}
